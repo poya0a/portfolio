@@ -1,3 +1,5 @@
-.container {
-    
+@import '@/styles/globals.scss';
+
+.home {
+    padding: 50px clamp(20px, calc(5vw + 10px), 50px);
 }

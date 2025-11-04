@@ -16,12 +16,6 @@ $text: #1f1f1f;
 $text-sub: #555555;
 $text-sub2: #999999;
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 #html,
 #body {
     margin: 0;
@@ -48,12 +42,14 @@ $text-sub2: #999999;
     input,
     label,
     a,
+    i,
     table,
     tbody,
     thead,
     tr,
     th,
     td,
+    nav,
     ul,
     li,
     ol,
@@ -93,6 +89,7 @@ $text-sub2: #999999;
     audio,
     video,
     option {
+        box-sizing: border-box;
         font-style: normal;
     }
 }
@@ -102,26 +99,23 @@ $text-sub2: #999999;
 }
 
 #body {
+    position: relative;
     font: 14px/1 normal;
-    color: $text-sub;
-    background: $background-color;
+    color: $text;
 }
 
-button {
+.button {
     margin: 0;
     padding: 0;
     border: 0;
-    background: transparent;
     cursor: pointer;
-    font: inherit;
-    background: none;
     outline-style: none;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-input {
+.input {
     border: 0;
     margin: 0;
     background: transparent;
