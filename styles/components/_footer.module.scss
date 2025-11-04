@@ -27,8 +27,8 @@
     z-index: 3;
     width: 30px;
     height: 30px;
-    bottom: 20px;
-    right: 20px;
+    bottom: 10px;
+    right: 10px;
     background-color: $main-color;
     border-radius: var(--radius);
     opacity: 0.5;
@@ -62,13 +62,13 @@
         opacity: 0.5;
     }
     100% {
-        bottom: 20px;
+        bottom: 10px;
     }
 }
 
 @keyframes hideMode {
     0% {
-        bottom: 20px;
+        bottom: 10px;
     }
     90% {
         display: initial;

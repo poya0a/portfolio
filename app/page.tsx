@@ -200,11 +200,95 @@ export default function HomePage() {
         <section id="projects" className={styles.projects}>
           <p>Projects</p>
           <div className={styles.container}>
+            
           </div>
         </section>
         <section id="career" className={styles.career}>
           <p>Career</p>
           <div className={styles.container}>
+            <div className={styles.job}>
+              <button 
+                className={`button ${styles.company}`}
+                onClick={() => window.open("https://www.notion.so/poya0a/Career-Description-1f14c6b18bc180a78305c1fde4f79d51?source=copy_link", "_blank")}
+                >
+                <p className={styles.companyName}>(주) 비알아이티</p>
+                <p className={styles.period}>2022.10 - 2025.04 (2년 7개월)</p>
+                <p className={styles.position}>솔루션개발2팀 / 프론트엔드 개발자</p>
+              </button>
+
+              <div className={styles.careerProjectsList}>
+                <div className={styles.careerProject}>
+                  <p className={styles.projectName}>BRIT / INSPLANET 홈페이지 리뉴얼</p>
+                  <p className={styles.period}>2022.10 - 2023.01</p>
+                  <aside className={styles.tip}>React, JavaScript, Styled Component</aside>
+                  <ul>
+                    <li>Styled Components를 활용한 프로젝트 환경 설정 및 퍼블리싱 작업</li>
+                    <li>입사 지원 및 문의 폼 기능과 게시판 개발</li>
+                    <li>디자이너와 협력하여 Figma 요구사항을 반영한 UI/UX 구현</li>
+                  </ul>
+                </div>
+                <div className={styles.careerProject}>
+                  <p className={styles.projectName}>전기 트럭 GSG T4K</p>
+                  <p className={styles.period}>2023.01 - 2023.03</p>
+                  <aside className={styles.tip}>React, JavaScript, Redux Toolkit, Node</aside>
+                  <ul>
+                    <li>Redux Toolkit을 활용한 상태 관리 최적화 및 구조 설계</li>
+                    <li>상태 업데이트로 인한 불필요한 리렌더링 문제 해결 및 성능 개선</li>
+                    <li>useMemo를 활용한 컴포넌트 최적화</li>
+                  </ul>
+                </div>
+                <div className={styles.careerProject}>
+                  <p className={styles.projectName}>운동 예약 웹 / 앱 및 관리자 페이지 개발</p>
+                  <p className={styles.period}>2023.04 - 2023.08 / 2024.01 - 2024.04</p>
+                  <aside className={styles.tip}>React, TypeScript, Redux Toolkit, JSP, SCSS, Node</aside>
+                  <ul>
+                    <li>JSP를 활용한 Admin 페이지에서 권한 관리 및 CRUD 기능 개발</li>
+                    <li>입사 지원 및 문의 폼 기능과 게시판 개발</li>
+                    <li>React Calendar 라이브러리 도입으로 퍼블리싱 공수 절감 및 UX 향상</li>
+                  </ul>
+                </div>
+                <div className={styles.careerProject}>
+                  <p className={styles.projectName}>BLGES 표준 리포트</p>
+                  <p className={styles.period}>2023.05 - 2023.06</p>
+                  <aside className={styles.tip}>HTML, JavaScript, CSS</aside>
+                  <ul>
+                    <li>기존 리포트 CRUD 기능 유지 보수를 담당하며, 폼 데이터에 이미지 추가 기능 개발</li>
+                    <li>기존 코드와 공통 기능을 분석 및 활용해 코드 재사용성과 확장성 증가</li>
+                    <li>HTML 기반의 구현 한계를 극복하기 위해 동료와 협업하며 효율적인 방식으로 문제 해결</li>
+                  </ul>
+                </div>
+                <div className={styles.careerProject}>
+                  <p className={styles.projectName}>로봇 관리 사이트 KT RBrain 리뉴얼</p>
+                  <p className={styles.period}>2024.10 -2024.12</p>
+                  <aside className={styles.tip}>React, JavaScript, Zustand, React Query, SCSS</aside>
+                  <ul>
+                    <li>Vue 기반 사이트를 React로 재구축하며 리포트 조회·다운로드, 권한 관리 등 기능 개발</li>
+                    <li>React Query를 활용하며 API 호출 최적화 및 조건부 데이터 페칭을 구현해 성능 문제 해결</li>
+                    <li>개발 과정에서 속도와 꼼꼼함의 균형을 위해 시나리오 정리 및 반복 점검</li>
+                  </ul>
+                </div>
+                <div className={styles.careerProject}>
+                  <p className={styles.projectName}>사내 채팅 프로그램 ( 개인 프로젝트 )</p>
+                  <p className={styles.period}>2023.05 - 2023.12</p>
+                  <aside className={styles.tip}>Flutter, Dart, Firebase, Redis, Web Socket</aside>
+                  <ul>
+                    <li>lutter와 Dart를 활용한 하이브리드 앱 개발</li>
+                    <li>Redis와 WebSocket을 활용한 실시간 메시지 송수신 및 알림 기능 구현</li>
+                    <li>회원 관리 시스템 설계 및 데이터베이스 구조 최적화</li>
+                  </ul>
+                </div>
+                <div className={styles.careerProject}>
+                  <p className={styles.projectName}>게시판 ( 개인 프로젝트 )</p>
+                  <p className={styles.period}>2024.05 - 2025.02</p>
+                  <aside className={styles.tip}>Next.js, TypeScript, Zustand, TipTap Editor, NextApi, SQL, Supabase, Vercel</aside>
+                  <ul>
+                    <li>Next.js와 TypeScript를 활용하여 SEO 최적화된 게시판 구현</li>
+                    <li>Supabase와 SQL을 활용한 데이터베이스 관리 및 API 설계</li>
+                    <li>SSR과 SSG를 병행하여 Vercel 배포 시 빌드 시간 및 호환성 문제 해결</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </div>
