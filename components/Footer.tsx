@@ -4,8 +4,8 @@ import Image from "next/image";
 import styles from "@/styles/components/_footer.module.scss";
 
 export default function Footer() {
-    const [showPopup, setShowPopup] = useState(false);
-    const [showButton, setShowButton] = useState(false);
+    const [showPopup, setShowPopup] = useState<boolean>(false);
+    const [showButton, setShowButton] = useState<boolean>(false);
 
     useEffect(() => {
         if (showPopup) {

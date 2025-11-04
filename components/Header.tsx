@@ -4,8 +4,8 @@ import Image from "next/image";
 import styles from "@/styles/components/_header.module.scss";
 
 export default function Header() {
-    const [menuOpen, setMenuOpen] = useState(false);
-    const [active, setActive] = useState("title");
+    const [menuOpen, setMenuOpen] = useState<boolean>(false);
+    const [active, setActive] = useState<string>("title");
     const headerRef = useRef<HTMLElement>(null); 
 
     const sections = ["title", "aboutMe", "skills", "projects", "career"];
