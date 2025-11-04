@@ -6,6 +6,13 @@
         position: relative;
         width: 100%;
         padding: 50px clamp(20px, calc(5vw + 10px), 50px);
+        > p {
+            font-size: 20px;
+            line-height: 20px;
+            font-weight: 900;
+            text-align: center;
+            margin: 0 0 20px 0;
+    }
     }
 }
 
@@ -81,9 +88,13 @@
         #3b4b9f,
         $main-color
     );
+    > p {
+        color: $main-color;
+    }
+
     .container {
         position: relative;
-        padding: 60px 20px 20px 20px;
+        padding: 20px;
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
         background-color: $background-color;
         border-radius: var(--radius);
@@ -96,17 +107,6 @@
             grid-template-columns: 1fr;
         }
 
-        > p {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            margin: 0;
-            color: $main-color;
-            font-size: 20px;
-            line-height: 20px;
-            font-weight: 900;
-        }
         .item {
             position: relative;
             min-width: 0;
@@ -124,6 +124,7 @@
             }
 
             .itemTitle {
+                font-size: 15px;
                 font-weight: 700;
                 margin-bottom: 10px;
                 letter-spacing: 1px;
@@ -181,8 +182,56 @@
         $main-color,
         $background-color
     );
+    > p {
+        color: rgba(0, 23, 142, 0.8);
+    }
+    .container {
+        position: relative;
+        padding: 20px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+        background-color: rgba(0, 23, 142, 0.5);
+        border-radius: var(--radius);
+        .category {
+            color: $background-color;
+            margin-bottom: 20px;
+            .name {
+                display: flex;
+                gap: 20px;
+                font-size: 15px;
+                font-weight: 800;
+            }
+            .items {
+                display: flex;
+                gap: 20px;
+                padding: 10px 0;
+                overflow-x: auto;
+                overflow-y: hidden;
+                .itemButton {
+                    padding: 10px 20px;
+                    border-radius: var(--radius);
+                    border: 1px solid $background-color;
+                    font-weight: 800;
+                    color: $background-color;
+                    white-space: nowrap;
+                    text-align: center;
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
+                    flex-shrink: 0;
+                    &:hover {
+                        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+                    }
+                }
+            }
+            &:last-child {
+                margin: 0;
+            }
+        }
+    }
 }
 
 .projects {}
 
-.career {}
+.career {
+    background: url('../../public/footer_wave.svg') no-repeat bottom center;
+    background-size: 105%;
+    background-color: $background-color;
+}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440" height="240" viewBox="0 0 1440 240" fill="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Animated Footer Wave</title>
+  <desc id="desc">Gentle moving layered wave background for wedding-invitation footer.</desc>
+
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.6"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e6f2ff" stop-opacity="0.65"/>
+      <stop offset="1" stop-color="#e2f0ff" stop-opacity="0.45"/>
+    </linearGradient>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ddeeff" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#d9ecff" stop-opacity="0.03"/>
+    </linearGradient>
+
+    <!-- 파도 흔들림 모션 정의 -->
+    <style>
+      @keyframes waveMove {
+        0% { transform: translateX(0); }
+        50% { transform: translateX(-20px); }
+        100% { transform: translateX(0); }
+      }
+      .wave {
+        animation: waveMove 2s ease-in-out infinite;
+      }
+      .wave2 {
+        animation: waveMove 4s ease-in-out infinite reverse;
+      }
+      .wave3 {
+        animation: waveMove 6s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <g class="wave">
+    <path d="M0 72 C180 120 360 32 540 64 C720 96 900 192 1080 144 C1260 96 1440 112 1440 112 L1440 240 L0 240 Z"
+          fill="url(#g1)"/>
+  </g>
+
+  <g class="wave2">
+    <path d="M0 104 C160 72 320 160 480 136 C640 112 800 32 960 64 C1120 96 1280 40 1440 88 L1440 240 L0 240 Z"
+          fill="url(#g2)"/>
+  </g>
+
+  <g class="wave3">
+    <path d="M0 136 C200 168 400 96 600 128 C800 160 1000 96 1200 120 C1320 136 1440 104 1440 104 L1440 240 L0 240 Z"
+          fill="url(#g3)"/>
+  </g>
+</svg>
