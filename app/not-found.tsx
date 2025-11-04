@@ -1,12 +1,21 @@
 "use client";
-import { Metadata } from "next";
-import NotFoundClient from "@/components/NotFoundClient.tsx";
-
-export const metadata: Metadata = {
-    title: "페이지를 찾을 수 없습니다",
-    description: "Not Found Page",
-};
+import styles from "@/styles/pages/_notFound.module.scss";
+import { useRouter } from "next/navigation";
 
 export default function NotFound() {
-    return <NotFoundClient />;
+    const router = useRouter();
+    return (
+        <div className={styles.notFound}>
+            <h1>페이지를 찾을 수 없습니다.</h1>
+            <div className={styles.goToHome}>
+                <button
+                type="button"
+                className={`button ${styles.homeButton}`}
+                onClick={() => router.push("/")}
+                >
+                홈으로
+                </button>
+            </div>
+        </div>
+    );
 }
