@@ -5,7 +5,7 @@
     section {
         position: relative;
         width: 100%;
-        padding: 50px clamp(20px, calc(5vw + 10px), 50px);
+        padding: 100px clamp(20px, calc(5vw + 10px), 50px);
         > p {
             font-size: 20px;
             line-height: 20px;
@@ -118,9 +118,12 @@
             border-radius: var(--radius);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
 
-            &:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+            &.email, &.github {
+                cursor: pointer;
+                &:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+                }
             }
 
             .itemTitle {
@@ -230,7 +233,57 @@
 
 .projects {
     .container {
-
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 40px;
+        .card {
+            cursor: pointer;
+            background: #f0f7ff;
+            border: 1px solid #f0f7ff;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 12px rgba(0, 23, 142, 0.1);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            position: relative;
+            backdrop-filter: blur(6px);
+            &:hover {
+                transform: scale(1.05);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+                border: 1px solid $blue-color;
+            }
+            .header {
+                h3 {
+                    font-size: 20px;
+                    font-weight: 800;
+                    margin-bottom: 10px;
+                }
+                p {
+                    color: $text-sub2;
+                    line-height: 15px;
+                }
+            }
+            .stack {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin: 10px 0;
+                .tag {
+                    background: $main-color;
+                    color: $blue-color;
+                    border: 1px solid $blue-color;
+                    border-radius: var(--radius);
+                    padding: 5px 10px;
+                }
+            }
+            .details {
+                p {
+                    line-height: 20px;
+                    margin: 5px 0;
+                }
+            }
+        }
     }
 }
 
@@ -238,6 +291,9 @@
     background: url('../../public/footer_wave.svg') no-repeat bottom center;
     background-size: 105%;
     background-color: $background-color;
+    > p {
+        color: $blue-color;
+    }
     .container {
         .job {
             display: flex;
@@ -248,6 +304,7 @@
                 color: $text-sub2;
             }
             .company {
+                color: $text;
                 background-color: transparent;
                 cursor: pointer;
                 .companyName {
@@ -307,5 +364,23 @@
                 }
             }
         }
+    }
+}
+
+.alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    p {
+        width: 100%;
+        text-align: center;
+        font-size: 12px;
+        color: #111;
+        margin: 0;
     }
 }

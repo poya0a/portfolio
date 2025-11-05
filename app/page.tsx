@@ -1,13 +1,49 @@
 "use client";
-// import { projects } from "@/data/projects";
-// import ProjectCard from "@/components/ProjectCard.tsx";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ShootingStarsCanvas from "@/components/ShootingStarsCanvas";
+import { projects } from "@/data/projects";
 import styles from "@/styles/pages/_home.module.scss"
 
 export default function HomePage() {
+  const [showAlert, setShowAlert] = useState<string>("");
+
+  const copyToClipboard = (text: string) => {
+    if (!navigator.clipboard) {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand("copy");
+        setShowAlert("이메일 주소가 복사되었습니다.");
+      } catch (err) {
+        setShowAlert("이메일 주소 복사에 실패했습니다.");
+        alert(err);
+      }
+      document.body.removeChild(textarea);
+      return;
+    }
+
+    navigator.clipboard.writeText(text).then(
+      () => {
+        setShowAlert("이메일 주소가 복사되었습니다.");
+      },
+      () => {
+        setShowAlert("이메일 주소 복사에 실패했습니다.");
+      }
+    );
+  };
+
+  useEffect(() => {
+    if (showAlert && showAlert !== "") {
+      const timer = setTimeout(() => setShowAlert(""), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [showAlert]);
+
   return (
     <>
       <Header />
@@ -39,11 +75,11 @@ export default function HomePage() {
               <div className={styles.itemTitle}>위치</div>
               <div className={styles.itemContent}>서울특별시 영등포구</div>
             </div>
-            <div className={`${styles.item} ${styles.email}`}>
+            <div className={`${styles.item} ${styles.email}`} onClick={() => copyToClipboard("damdadodam_@naver.com")}>
               <div className={styles.itemTitle}>이메일</div>
               <div className={styles.itemContent}>damdadodam_@naver.com</div>
             </div>
-            <div className={`${styles.item} ${styles.github}`}>
+            <div className={`${styles.item} ${styles.github}`} onClick={() => window.open("https://github.com/poya0a", "_blank")}>
               <div className={styles.itemTitle}>깃허브</div>
               <div className={styles.itemContent}>https://github.com/poya0a</div>
             </div>
@@ -200,7 +236,28 @@ export default function HomePage() {
         <section id="projects" className={styles.projects}>
           <p>Projects</p>
           <div className={styles.container}>
-            
+            {projects.map((project) => (
+              <div key={project.id} className={styles.card}>
+                <div className={styles.header}>
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                </div>
+
+                <div className={styles.stack}>
+                  {project.stack.map((tech) => (
+                    <span key={tech} className={styles.tag}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className={styles.details}>
+                  {project.details.split("  ").map((line, i) => (
+                    <p key={i}>{line.trim()}</p>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </section>
         <section id="career" className={styles.career}>
@@ -291,6 +348,11 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+        {showAlert && showAlert !== "" &&
+          <div className={styles.alert}>
+            <p>{showAlert}</p>
+          </div>
+        }
       </div>
       <Footer/>
     </>

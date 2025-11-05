@@ -11,31 +11,36 @@ export default function ShootingStarsCanvas() {
 
         const canvas = canvasRef.current;
         if (!canvas) return;
+        const parent = canvas.parentElement;
+        if (!parent) return;
+
         const ctx = canvas.getContext("2d", { alpha: false });
         if (!ctx) return;
 
-        widthRef.current = canvas.width = window.innerWidth;
-        heightRef.current = canvas.height = window.innerHeight;
+        const setCanvasSize = () => {
+            widthRef.current = canvas.width = parent.clientWidth;
+            heightRef.current = canvas.height = parent.clientHeight;
+        };
+
+        setCanvasSize();
 
         const STAR_COUNT = 30;
         const SHOOT_COLORS = [200, 210, 50, 0];
-
         interface ShootingStar {
-            x: number;
-            y: number;
-            len: number;
-            speed: number;
-            angle: number;
-            opacity: number;
-            hue: number;
+        x: number;
+        y: number;
+        len: number;
+        speed: number;
+        angle: number;
+        opacity: number;
+        hue: number;
         }
-
         interface TwinkleStar {
-            x: number;
-            y: number;
-            size: number;
-            alpha: number;
-            speed: number;
+        x: number;
+        y: number;
+        size: number;
+        alpha: number;
+        speed: number;
         }
 
         const baseStars: ShootingStar[] = [];
@@ -64,13 +69,8 @@ export default function ShootingStarsCanvas() {
         for (let i = 0; i < baseCount; i++) baseStars.push(createShootingStar());
         for (let i = 0; i < STAR_COUNT; i++) twinkles.push(createTwinkleStar());
 
-        const handleResize = () => {
-            widthRef.current = window.innerWidth;
-            heightRef.current = window.innerHeight;
-            canvas.width = widthRef.current;
-            canvas.height = heightRef.current;
-        };
-        window.addEventListener("resize", handleResize);
+        const resizeObserver = new ResizeObserver(() => setCanvasSize());
+        resizeObserver.observe(parent);
 
         const handleClick = (e: MouseEvent) => {
             const rect = canvas.getBoundingClientRect();
@@ -81,82 +81,76 @@ export default function ShootingStarsCanvas() {
         canvas.addEventListener("click", handleClick);
 
         const render = () => {
-        const width = widthRef.current;
-        const height = heightRef.current;
+            const width = widthRef.current;
+            const height = heightRef.current;
 
-        const grad = ctx.createLinearGradient(0, 0, 0, height);
-        grad.addColorStop(0, "#0a0c2a");
-        grad.addColorStop(0.5, "#1b2763");
-        grad.addColorStop(1, "#3b4b9f");
-        ctx.fillStyle = grad;
-        ctx.globalAlpha = 1;
-        ctx.fillRect(0, 0, width, height);
+            const grad = ctx.createLinearGradient(0, 0, 0, height);
+            grad.addColorStop(0, "#0a0c2a");
+            grad.addColorStop(0.5, "#1b2763");
+            grad.addColorStop(1, "#3b4b9f");
+            ctx.fillStyle = grad;
+            ctx.globalAlpha = 1;
+            ctx.fillRect(0, 0, width, height);
 
-        twinkles.forEach((t) => {
-            t.alpha += t.speed * (Math.random() > 0.5 ? 1 : -1);
-            if (t.alpha > 1) t.alpha = 1;
-            if (t.alpha < 0) t.alpha = 0;
-            const fade = 1 - Math.min(t.y / height, 1);
-            ctx.beginPath();
-            ctx.fillStyle = `rgba(255,255,255,${t.alpha * fade})`;
-            ctx.arc(t.x, t.y, t.size, 0, Math.PI * 2);
-            ctx.fill();
-        });
+            twinkles.forEach((t) => {
+                t.alpha += t.speed * (Math.random() > 0.5 ? 1 : -1);
+                if (t.alpha > 1) t.alpha = 1;
+                if (t.alpha < 0) t.alpha = 0;
+                const fade = 1 - Math.min(t.y / height, 1);
+                ctx.beginPath();
+                ctx.fillStyle = `rgba(255,255,255,${t.alpha * fade})`;
+                ctx.arc(t.x, t.y, t.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
 
-        const drawStar = (s: ShootingStar) => {
-            s.x -= Math.cos(s.angle) * s.speed;
-            s.y += Math.sin(s.angle) * s.speed;
+            const drawStar = (s: ShootingStar) => {
+                s.x -= Math.cos(s.angle) * s.speed;
+                s.y += Math.sin(s.angle) * s.speed;
 
-            const fade = 1 - Math.min(s.y / height, 1);
-            const gradTrail = ctx.createLinearGradient(
-                s.x,
-                s.y,
-                s.x + Math.cos(s.angle) * s.len,
-                s.y - Math.sin(s.angle) * s.len
-            );
-            gradTrail.addColorStop(0, `hsla(${s.hue}, 100%, 85%, ${s.opacity * fade})`);
-            gradTrail.addColorStop(1, `hsla(${s.hue}, 100%, 40%, 0)`);
+                const fade = 1 - Math.min(s.y / height, 1);
+                const gradTrail = ctx.createLinearGradient(
+                    s.x,
+                    s.y,
+                    s.x + Math.cos(s.angle) * s.len,
+                    s.y - Math.sin(s.angle) * s.len
+                );
+                gradTrail.addColorStop(0, `hsla(${s.hue}, 100%, 85%, ${s.opacity * fade})`);
+                gradTrail.addColorStop(1, `hsla(${s.hue}, 100%, 40%, 0)`);
 
-            ctx.strokeStyle = gradTrail;
-            ctx.lineWidth = 1.8;
-            ctx.beginPath();
-            ctx.moveTo(s.x, s.y);
-            ctx.lineTo(
-                s.x + Math.cos(s.angle) * s.len,
-                s.y - Math.sin(s.angle) * s.len
-            );
-            ctx.stroke();
-        };
+                ctx.strokeStyle = gradTrail;
+                ctx.lineWidth = 1.8;
+                ctx.beginPath();
+                ctx.moveTo(s.x, s.y);
+                ctx.lineTo(
+                    s.x + Math.cos(s.angle) * s.len,
+                    s.y - Math.sin(s.angle) * s.len
+                );
+                ctx.stroke();
+            };
 
-        baseStars.forEach((s, i) => {
-            drawStar(s);
-            if (s.x < -200 || s.y > height + 100) baseStars[i] = createShootingStar();
-        });
+            baseStars.forEach((s, i) => {
+                drawStar(s);
+                if (s.x < -200 || s.y > height + 100)
+                baseStars[i] = createShootingStar();
+            });
 
-        clickStars = clickStars.filter((s) => {
-            drawStar(s);
-            return !(s.x < -200 || s.y > height + 100);
-        });
+            clickStars = clickStars.filter((s) => {
+                drawStar(s);
+                return !(s.x < -200 || s.y > height + 100);
+            });
 
-        requestAnimationFrame(render);
+            requestAnimationFrame(render);
         };
 
         render();
 
         return () => {
-            window.removeEventListener("resize", handleResize);
+            resizeObserver.disconnect();
             canvas.removeEventListener("click", handleClick);
         };
     }, []);
 
     return (
-        <canvas
-        ref={canvasRef}
-        style={{
-            position: "absolute",
-            inset: 0,
-            zIndex: 0,
-        }}
-        />
+        <canvas ref={canvasRef} />
     );
 }

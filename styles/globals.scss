@@ -30,6 +30,10 @@ $text-sub2: #999999;
     vertical-align: baseline;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     h1,
     h2,
     h3,
@@ -91,6 +95,11 @@ $text-sub2: #999999;
     option {
         box-sizing: border-box;
         font-style: normal;
+    }
+    canvas {
+        position: absolute;
+        z-index: 0;
+        inset: 0;
     }
 }
 
@@ -315,15 +324,12 @@ $text-sub2: #999999;
     height: 5px;
 }
 ::-webkit-scrollbar-track {
-    background: #f0f0f0;
+    background: $sub-color;
     border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: #ccc;
-    border-radius: 2px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background-color: #999;
+    background-color: $main-color;
+    border-radius: 3px;
 }
 ::-webkit-scrollbar-button {
     display: none;
