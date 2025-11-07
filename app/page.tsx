@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -237,7 +238,7 @@ export default function HomePage() {
           <p>Projects</p>
           <div className={styles.container}>
             {projects.map((project) => (
-              <div key={project.id} className={styles.card} onClick={() => window.open(project.url)}>
+              <Link key={project.id} className={styles.card} href={project.url}>
                 <div className={styles.header}>
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
@@ -256,7 +257,7 @@ export default function HomePage() {
                     <p key={i}>{line.trim()}</p>
                   ))}
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </section>

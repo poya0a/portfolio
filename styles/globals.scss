@@ -101,6 +101,10 @@ $text-sub2: #999999;
         z-index: 0;
         inset: 0;
     }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
 }
 
 #html {
