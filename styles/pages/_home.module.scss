@@ -56,6 +56,7 @@
             );
             background-size: 300% auto;
             animation: shineText 6s linear infinite;
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             @media (max-width: 480px) {
@@ -293,7 +294,7 @@
 
 .career {
     background: url('../../public/footer_wave.svg') no-repeat bottom center;
-    background-size: 105%;
+    background-size: 120%;
     background-color: $background-color;
     > p {
         color: $blue-color;

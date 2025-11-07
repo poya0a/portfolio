@@ -237,7 +237,7 @@ export default function HomePage() {
           <p>Projects</p>
           <div className={styles.container}>
             {projects.map((project) => (
-              <div key={project.id} className={styles.card}>
+              <div key={project.id} className={styles.card} onClick={() => window.open(project.url)}>
                 <div className={styles.header}>
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
@@ -315,17 +315,7 @@ export default function HomePage() {
                   </ul>
                 </div>
                 <div className={styles.careerProject}>
-                  <p className={styles.projectName}>로봇 관리 사이트 KT RBrain 리뉴얼</p>
-                  <p className={styles.period}>2024.10 -2024.12</p>
-                  <aside className={styles.tip}>React, JavaScript, Zustand, React Query, SCSS</aside>
-                  <ul>
-                    <li>Vue 기반 사이트를 React로 재구축하며 리포트 조회·다운로드, 권한 관리 등 기능 개발</li>
-                    <li>React Query를 활용하며 API 호출 최적화 및 조건부 데이터 페칭을 구현해 성능 문제 해결</li>
-                    <li>개발 과정에서 속도와 꼼꼼함의 균형을 위해 시나리오 정리 및 반복 점검</li>
-                  </ul>
-                </div>
-                <div className={styles.careerProject}>
-                  <p className={styles.projectName}>사내 채팅 프로그램 ( 개인 프로젝트 )</p>
+                  <p className={styles.projectName}>채팅 프로그램</p>
                   <p className={styles.period}>2023.05 - 2023.12</p>
                   <aside className={styles.tip}>Flutter, Dart, Firebase, Redis, Web Socket</aside>
                   <ul>
@@ -335,13 +325,23 @@ export default function HomePage() {
                   </ul>
                 </div>
                 <div className={styles.careerProject}>
-                  <p className={styles.projectName}>게시판 ( 개인 프로젝트 )</p>
+                  <p className={styles.projectName}>게시판</p>
                   <p className={styles.period}>2024.05 - 2025.02</p>
                   <aside className={styles.tip}>Next.js, TypeScript, Zustand, TipTap Editor, NextApi, SQL, Supabase, Vercel</aside>
                   <ul>
                     <li>Next.js와 TypeScript를 활용하여 SEO 최적화된 게시판 구현</li>
                     <li>Supabase와 SQL을 활용한 데이터베이스 관리 및 API 설계</li>
                     <li>SSR과 SSG를 병행하여 Vercel 배포 시 빌드 시간 및 호환성 문제 해결</li>
+                  </ul>
+                </div>
+                <div className={styles.careerProject}>
+                  <p className={styles.projectName}>로봇 관리 사이트 KT RBrain 리뉴얼</p>
+                  <p className={styles.period}>2024.10 -2024.12</p>
+                  <aside className={styles.tip}>React, JavaScript, Zustand, React Query, SCSS</aside>
+                  <ul>
+                    <li>Vue 기반 사이트를 React로 재구축하며 리포트 조회·다운로드, 권한 관리 등 기능 개발</li>
+                    <li>React Query를 활용하며 API 호출 최적화 및 조건부 데이터 페칭을 구현해 성능 문제 해결</li>
+                    <li>개발 과정에서 속도와 꼼꼼함의 균형을 위해 시나리오 정리 및 반복 점검</li>
                   </ul>
                 </div>
               </div>
