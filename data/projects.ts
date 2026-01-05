@@ -2,13 +2,14 @@ export const projects = [
     {
         id: 'ailog',
         title: 'AI 블로그 플랫폼',
-        description: 'AI를 활용해 글 제목, 요약, 태그, 썸네일 이미지를 자동으로 생성하는 지능형 블로그 플랫폼',
+        description: 'AI를 활용해 글 제목, 요약, 태그를 자동으로 생성할 수 있는 블로그 플랫폼',
         stack: ['Next.js', 'Supabase', 'TypeScript', 'OpenAI API', 'SCSS'],
         details: `
-            OpenAI API로 자동 요약 및 태그 생성
-            Supabase DB를 통한 게시글 관리 (CRUD)
-            AI 이미지 자동 추천 (DALL·E or Image API)
-            SSR + SEO 최적화 구조 
+            AI를 활용한 글 제목 · 요약 · 태그 자동 생성 기능
+            사용자가 직접 제목, 요약, 태그를 입력할 수 있는 편집 기능 제공
+            Supabase DB를 활용한 게시글 CRUD(작성·조회·수정·삭제) 구현
+            Next.js 기반 SSR 구조로 SEO를 고려한 페이지 구성
+            반응형 UI 및 SCSS 기반 스타일링
             `,
         url : "https://ailog-seven.vercel.app"
     },
@@ -23,7 +24,7 @@ export const projects = [
             커서 위치/사용자 표시
             문서 공유 링크 생성
             `,
-        url : ""
+        url : "https://note-together-kappa.vercel.app"
     },
     {
         id: 'studysync',
