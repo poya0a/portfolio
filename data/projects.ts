@@ -5,11 +5,11 @@ export const projects = [
         description: 'AI를 활용해 글 제목, 요약, 태그를 자동으로 생성할 수 있는 블로그 플랫폼',
         stack: ['Next.js', 'Supabase', 'TypeScript', 'OpenAI API', 'SCSS'],
         details: `
-            AI를 활용한 글 제목 · 요약 · 태그 자동 생성 기능
-            사용자가 직접 제목, 요약, 태그를 입력할 수 있는 편집 기능 제공
-            Supabase DB를 활용한 게시글 CRUD(작성·조회·수정·삭제) 구현
-            Next.js 기반 SSR 구조로 SEO를 고려한 페이지 구성
-            반응형 UI 및 SCSS 기반 스타일링
+            AI 기반 글 제목, 요약, 태그 자동 생성 기능 제공
+            사용자가 직접 제목, 요약, 태그를 입력하고 수정할 수 있는 편집 기능
+            Supabase를 활용한 게시글 CRUD(작성, 조회, 수정, 삭제) 구현
+            Next.js SSR 기반 SEO 최적화 페이지 구성
+            반응형 UI와 SCSS 스타일링으로 다양한 화면 지원
             `,
         url : "https://ailog-seven.vercel.app"
     },
@@ -27,14 +27,11 @@ export const projects = [
             'SCSS'
         ],
         details: `
-            TipTap 기반 리치 텍스트 에디터 구현 (TextStyle 확장, 폰트/컬러/하이라이트 지원)
+            TipTap 기반 리치 텍스트 에디터 구현
             Y.js + Hocuspocus를 활용한 실시간 문서 동기화 및 충돌 없는 편집(CRDT)
             사용자 커서 위치 및 포인터 실시간 표시(Awareness)
             제목과 본문 분리 동기화 (Y.Map + Y.XmlFragment)
-            선택 스타일 유지(storedMarks) 및 입력 중 스타일 유지 로직 구현
             문서 삭제 시 모든 접속자에게 실시간 알림 및 세션 종료 처리
-            이미지 삽입 및 리사이즈, 테이블, 태스크 리스트, 코드 블록 지원
-            Zustand를 활용한 에디터 상태 관리 및 툴바 UI 동기화
         `,
         url : "https://note-together-kappa.vercel.app"
     },
