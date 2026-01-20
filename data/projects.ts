@@ -15,15 +15,27 @@ export const projects = [
     },
     {
         id: 'notetogether',
-        title: '실시간 협업 메모 앱',
-        description: '하나의 링크로 여러 명이 동시에 문서를 작성·수정할 수 있는 실시간 협업 에디터',
-        stack: ['React', 'TipTap', 'Y.js', 'Zustand', 'SCSS'],
-        details: ` 
-            TipTap 기반 리치 텍스트 에디터
-            Y.js를 이용한 실시간 동기화
-            커서 위치/사용자 표시
-            문서 공유 링크 생성
-            `,
+        title: '실시간 협업 에디터',
+        description: '하나의 링크로 여러 사용자가 동시에 편집하고 변경 사항을 즉시 공유할 수 있는 실시간 협업 문서 편집기',
+        stack: [
+            'Next.js',
+            'React',
+            'TipTap',
+            'Y.js',
+            'Hocuspocus',
+            'Zustand',
+            'SCSS'
+        ],
+        details: `
+            TipTap 기반 리치 텍스트 에디터 구현 (TextStyle 확장, 폰트/컬러/하이라이트 지원)
+            Y.js + Hocuspocus를 활용한 실시간 문서 동기화 및 충돌 없는 편집(CRDT)
+            사용자 커서 위치 및 포인터 실시간 표시(Awareness)
+            제목과 본문 분리 동기화 (Y.Map + Y.XmlFragment)
+            선택 스타일 유지(storedMarks) 및 입력 중 스타일 유지 로직 구현
+            문서 삭제 시 모든 접속자에게 실시간 알림 및 세션 종료 처리
+            이미지 삽입 및 리사이즈, 테이블, 태스크 리스트, 코드 블록 지원
+            Zustand를 활용한 에디터 상태 관리 및 툴바 UI 동기화
+        `,
         url : "https://note-together-kappa.vercel.app"
     },
     // {
