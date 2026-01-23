@@ -35,19 +35,29 @@ export const projects = [
         `,
         url : "https://note-together-kappa.vercel.app"
     },
-    // {
-    //     id: 'studysync',
-    //     title: '스터디 일정 관리 캘린더',
-    //     description: '개인 및 그룹 스터디 일정 관리를 위한 캘린더형 웹앱',
-    //     stack: ['Next.js', 'React Calendar', 'Firebase Auth', 'SCSS'],
-    //     details: `
-    //         Google/Firebase Auth 로그인
-    //         React Calendar 기반 일정 등록/삭제
-    //         일정 색상 태그 및 메모 기능
-    //         로컬/원격 동기화 지원
-    //         `,
-    //     url : ""
-    // },
+    {
+        id: 'studysync',
+        title: '스터디 일정 관리 캘린더',
+        description: '개인 및 그룹 스터디 일정 관리를 위한 캘린더형 웹앱',
+        stack: [
+            'Next.js',
+            'React',
+            'React Calendar',
+            'Firebase Auth',
+            'Firestore',
+            'Zustand',
+            'SCSS'
+        ],
+        details: `
+            Firebase Auth 기반 로그인 및 사용자 상태 관리
+            개인 일정 / 그룹 일정 분리 조회 및 관리
+            그룹 생성, 초대 코드 기반 그룹 참여 기능
+            그룹 소유자 권한 기반 일정 추가·삭제 제어
+            날짜별 일정 색상 태그 표시 (캘린더 dot UI)
+            React Calendar 기반 월/일 단위 일정 조회
+        `,
+        url : "https://studysync-two.vercel.app"
+    },
     // {
     //     id: 'board',
     //     title: '게시판 CRUD',
