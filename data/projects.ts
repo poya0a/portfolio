@@ -69,8 +69,8 @@ export const projects = [
 
     {
         id: 'studysync-admin',
-        title: 'StudySync Admin',
-        description: 'StudySync 서비스 운영을 위한 관리자 어드민 대시보드',
+        title: '스터디 일정 관리 캘린더 어드민',
+        description: '스터디 일정 관리 캘린더 서비스 운영을 위한 관리자 대시보드',
         stack: [
             'Next.js',
             'TypeScript',
@@ -80,12 +80,12 @@ export const projects = [
             'SCSS',
         ],
         details: `
-            StudySync 서비스 데이터를 기반으로 한 관리자 전용 어드민 대시보드
+            스터디 일정 관리 캘린더 서비스 데이터를 기반으로 한 관리자 전용 어드민 대시보드
             사용자 / 그룹 / 일정 데이터를 테이블 형태로 조회 및 관리
-            서버 사이드 pagination, 검색 기능 구현
             React Query 기반 서버 상태 캐싱 및 query key 설계
-            재사용 가능한 DataTable 컴포넌트 아키텍처 설계
-            실제 서비스 운영 시나리오를 가정한 관리자 UX 구현
+            Recharts 기반 관리자 통계 대시보드 구현
+            일정 생성 추이를 LineChart로 시각화
+            그룹별 인원 분포 BarChart 제공
         `,
         url: 'https://studysync-admin.vercel.app',
     },
