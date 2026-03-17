@@ -109,7 +109,7 @@ export const projects = [
     //         사용자 온라인 상태 표시
     //         FCM 기반 푸시 알림 연동
     //     `,
-    //     url: '',
+    //     url: 'https://chatly-c042d.firebaseapp.com',
     // },
 
     // {
